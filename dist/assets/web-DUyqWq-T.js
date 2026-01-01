@@ -1,4 +1,4 @@
-import { r as registerVersion, _ as _registerComponent, C as Component, a as _getProvider, E as ErrorFactory, o as openDB, F as FirebaseError, g as getApp, v as validateIndexedDBOpenable, i as isIndexedDBAvailable, b as areCookiesEnabled, c as getModularInstance, d as deleteDB, W as WebPlugin } from "./index-DHY9kDEX.js";
+import { r as registerVersion, _ as _registerComponent, C as Component, a as _getProvider, E as ErrorFactory, o as openDB, F as FirebaseError, g as getApp, v as validateIndexedDBOpenable, i as isIndexedDBAvailable, b as areCookiesEnabled, c as getModularInstance, d as deleteDB, W as WebPlugin } from "./index-7Z5PwZSf.js";
 const name$1 = "@firebase/installations";
 const version$1 = "0.6.18";
 /**

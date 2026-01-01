@@ -1,4 +1,4 @@
-import { W as WebPlugin } from "./index-DHY9kDEX.js";
+import { W as WebPlugin } from "./index-7Z5PwZSf.js";
 class KeepAwakeWeb extends WebPlugin {
   constructor() {
     super(...arguments);

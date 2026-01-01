@@ -21372,8 +21372,8 @@ var _hoisted_5$n = ["disabled", "aria-label"];
 var _hoisted_6$i = ["disabled", "aria-label"];
 var _hoisted_7$e = ["disabled", "aria-label"];
 var _hoisted_8$c = ["disabled", "aria-label"];
-var _hoisted_9$a = ["data-p-disabled"];
-var _hoisted_10$8 = ["abbr"];
+var _hoisted_9$9 = ["data-p-disabled"];
+var _hoisted_10$7 = ["abbr"];
 var _hoisted_11$6 = ["data-p-disabled"];
 var _hoisted_12$6 = ["aria-label", "data-p-today", "data-p-other-month"];
 var _hoisted_13$6 = ["onClick", "onKeydown", "aria-selected", "aria-disabled", "data-p"];
@@ -21692,7 +21692,7 @@ function render$D(_ctx, _cache, $props, $setup, $data, $options) {
               }), {
                 "data-pc-group-section": "tableheadercelllabel"
               }), toDisplayString($options.weekHeaderLabel), 17)];
-            })], 16, _hoisted_9$a)) : createCommentVNode("", true), (openBlock(true), createElementBlock(Fragment, null, renderList($options.weekDays, function(weekDay) {
+            })], 16, _hoisted_9$9)) : createCommentVNode("", true), (openBlock(true), createElementBlock(Fragment, null, renderList($options.weekDays, function(weekDay) {
               return openBlock(), createElementBlock("th", mergeProps({
                 key: weekDay,
                 scope: "col",
@@ -21708,7 +21708,7 @@ function render$D(_ctx, _cache, $props, $setup, $data, $options) {
                 ref_for: true
               }, _ctx.ptm("weekDay"), {
                 "data-pc-group-section": "tableheadercelllabel"
-              }), toDisplayString(weekDay), 17)], 16, _hoisted_10$8);
+              }), toDisplayString(weekDay), 17)], 16, _hoisted_10$7);
             }), 128))], 16)], 16), createBaseVNode("tbody", mergeProps({
               ref_for: true
             }, _ctx.ptm("tableBody")), [(openBlock(true), createElementBlock(Fragment, null, renderList(month2.dates, function(week, i2) {
@@ -28846,22 +28846,12 @@ registerPlugin("CapacitorHttp", {
   web: () => new CapacitorHttpPluginWeb()
 });
 const Preferences = registerPlugin("Preferences", {
-  web: () => __vitePreload(() => import("./web-BeeX0hjm.js"), true ? [] : void 0).then((m2) => new m2.PreferencesWeb())
+  web: () => __vitePreload(() => import("./web-Cg0bA0XZ.js"), true ? [] : void 0).then((m2) => new m2.PreferencesWeb())
 });
 const ENV = {
   // Environment mode
-  MODE: "development"
+  MODE: "production"
 };
-function getDevApiBaseUrl() {
-  try {
-    const platform = Capacitor.getPlatform();
-    if (platform === "android") {
-      return "http://10.0.2.2:8000";
-    }
-  } catch {
-  }
-  return "http://localhost:8000";
-}
 const APP_URL_CONFIGS = {
   development: {
     appUrl: "http://localhost:5173"
@@ -28872,10 +28862,12 @@ const APP_URL_CONFIGS = {
   }
 };
 function getCurrentApiConfig() {
-  return {
-    baseUrl: getDevApiBaseUrl(),
-    timeout: 1e4
-  };
+  {
+    return {
+      baseUrl: "https://recontrol.me",
+      timeout: 15e3
+    };
+  }
 }
 const initializeOpenAPIConfig = () => {
   const apiConfig = getCurrentApiConfig();
@@ -28894,9 +28886,6 @@ const initializeOpenAPIConfig = () => {
 };
 const getAppUrl = () => {
   var _a, _b;
-  if (typeof window !== "undefined" && ENV.MODE === "development") {
-    return window.location.origin;
-  }
   const mode2 = ENV.MODE;
   return ((_a = APP_URL_CONFIGS[mode2]) == null ? void 0 : _a.appUrl) || ((_b = window == null ? void 0 : window.location) == null ? void 0 : _b.origin) || "https://recontrol.me";
 };
@@ -28926,7 +28915,7 @@ var Visibility;
   Visibility2[Visibility2["Public"] = 1] = "Public";
 })(Visibility || (Visibility = {}));
 const FirebaseMessaging = registerPlugin("FirebaseMessaging", {
-  web: () => __vitePreload(() => import("./web-DUyqWq-T.js"), true ? [] : void 0).then((m2) => new m2.FirebaseMessagingWeb())
+  web: () => __vitePreload(() => import("./web-Dq_tPKCq.js"), true ? [] : void 0).then((m2) => new m2.FirebaseMessagingWeb())
 });
 const getDefaultsFromPostinstall = () => void 0;
 var define_process_env_default = {};
@@ -31027,7 +31016,7 @@ const useAuthStore = /* @__PURE__ */ defineStore("auth", () => {
   };
 });
 const KeepAwake = registerPlugin("KeepAwake", {
-  web: () => __vitePreload(() => import("./web--2SPrUxo.js"), true ? [] : void 0).then((m2) => new m2.KeepAwakeWeb())
+  web: () => __vitePreload(() => import("./web-BApHJtRo.js"), true ? [] : void 0).then((m2) => new m2.KeepAwakeWeb())
 });
 const useTimerStore = /* @__PURE__ */ defineStore("timer", () => {
   const isCounting = ref(false);
@@ -38423,6 +38412,332 @@ function consumptionDaysOfWeekBg(consumptionDays) {
 function neutralHeaderBg() {
   return "bg-green-300 text-green-900 border-t border-b border-green-400 dark:bg-green-400 dark:border-green-700";
 }
+const SECTION_CONFIGS = {
+  sports: {
+    key: "sports",
+    featureKey: "sports",
+    focusValue: TFeatureEnum.SPORTS,
+    icon: "🏋️‍♂️",
+    label: "Sport",
+    title: "Sport Aktivitäten",
+    badgeType: "sports",
+    goalTitle: "Sportaktivitäten",
+    gradientFrom: "orange",
+    gradientTo: "red",
+    component: "sports"
+  },
+  meditation: {
+    key: "meditation",
+    featureKey: "meditation",
+    focusValue: TFeatureEnum.MEDITATION,
+    icon: "🧘‍♂️",
+    label: "Meditation",
+    title: "Meditation Sessions",
+    badgeType: "meditation",
+    goalTitle: "Meditationssitzungen",
+    gradientFrom: "purple",
+    gradientTo: "indigo",
+    component: "meditation"
+  },
+  customHabits: {
+    key: "customHabits",
+    featureKey: "custom_habits",
+    focusValue: TFeatureEnum.CUSTOM_HABITS,
+    icon: "✨",
+    label: "Eigene Habits",
+    title: "Eigene Habits",
+    badgeType: "custom",
+    goalTitle: "Eigene Habits",
+    gradientFrom: "pink",
+    gradientTo: "rose",
+    component: "customHabits"
+  },
+  alcohol: {
+    key: "alcohol",
+    featureKey: "alcohol",
+    focusValue: TFeatureEnum.ALCOHOL,
+    icon: "🍷",
+    label: "Alkohol",
+    title: "Alkohol Status",
+    badgeType: "alcohol",
+    goalTitle: "Trockene Tage",
+    gradientFrom: "blue",
+    gradientTo: "cyan",
+    component: "alcohol"
+  },
+  weed: {
+    key: "weed",
+    featureKey: "cannabis",
+    focusValue: TFeatureEnum.CANNABIS,
+    icon: "🌿",
+    label: "Weed",
+    title: "Weed Status",
+    badgeType: "clean",
+    goalTitle: "Cleane Tage",
+    gradientFrom: "green",
+    gradientTo: "emerald",
+    component: "cannabis"
+  }
+};
+const BASE_ORDER = [
+  "sports",
+  "meditation",
+  "customHabits",
+  "alcohol",
+  "weed"
+];
+const SECTION_TO_FEATURE = {
+  weed: TFeatureEnum.CANNABIS,
+  alcohol: TFeatureEnum.ALCOHOL,
+  sports: TFeatureEnum.SPORTS,
+  meditation: TFeatureEnum.MEDITATION,
+  customHabits: TFeatureEnum.CUSTOM_HABITS
+};
+const FEATURE_TO_SECTION = {
+  [TFeatureEnum.CANNABIS]: "weed",
+  [TFeatureEnum.ALCOHOL]: "alcohol",
+  [TFeatureEnum.SPORTS]: "sports",
+  [TFeatureEnum.MEDITATION]: "meditation",
+  [TFeatureEnum.CUSTOM_HABITS]: "customHabits"
+};
+function getSortedSections(mode2, focusValue, features) {
+  const allConfigs = BASE_ORDER.map((key) => SECTION_CONFIGS[key]);
+  if (mode2 === "active") {
+    const active = allConfigs.filter(
+      (config2) => (features == null ? void 0 : features[config2.featureKey]) ?? true
+    );
+    return sortByFocus(active, focusValue);
+  }
+  if (mode2 === "settings") {
+    const enabled = allConfigs.filter(
+      (config2) => features == null ? void 0 : features[config2.featureKey]
+    );
+    const disabled3 = allConfigs.filter(
+      (config2) => !(features == null ? void 0 : features[config2.featureKey])
+    );
+    return [...sortByFocus(enabled, focusValue), ...disabled3];
+  }
+  return sortByFocus(allConfigs, focusValue);
+}
+function sortByFocus(items, focusValue) {
+  return [...items].sort((a2, b2) => {
+    const aIsFocus = focusValue === SECTION_TO_FEATURE[a2.key];
+    const bIsFocus = focusValue === SECTION_TO_FEATURE[b2.key];
+    if (aIsFocus && !bIsFocus) return -1;
+    if (!aIsFocus && bIsFocus) return 1;
+    return 0;
+  });
+}
+function getActiveWeekGoal(weeklyGoals) {
+  if (!weeklyGoals || weeklyGoals.length === 0) {
+    return null;
+  }
+  return weeklyGoals.find((goal) => goal.active === true) || null;
+}
+function getProgressPercentage(achieved, goal) {
+  if (goal === 0) return achieved > 0 ? 100 : 0;
+  return Math.min(100, Math.round(achieved / goal * 100));
+}
+function useHabits() {
+  const authStore2 = useAuthStore();
+  const daysStore = useDaysStore();
+  const customHabitsStore = useCustomHabitsStore();
+  const focus = computed(() => {
+    var _a, _b;
+    if ((_a = authStore2.currentUser) == null ? void 0 : _a.focus) {
+      return authStore2.currentUser.focus;
+    }
+    const features = (_b = authStore2.currentUser) == null ? void 0 : _b.features;
+    if (!features) return null;
+    for (const key of BASE_ORDER) {
+      if (features[SECTION_CONFIGS[key].featureKey]) {
+        return SECTION_CONFIGS[key].focusValue;
+      }
+    }
+    return null;
+  });
+  const focusInfo = computed(() => {
+    if (!focus.value) return null;
+    const config2 = SECTION_CONFIGS[FEATURE_TO_SECTION[focus.value]];
+    return { icon: config2.icon, label: config2.label };
+  });
+  const sections = computed(
+    () => {
+      var _a;
+      return getSortedSections("all", focus.value, (_a = authStore2.currentUser) == null ? void 0 : _a.features);
+    }
+  );
+  const activeSections = computed(
+    () => {
+      var _a;
+      return getSortedSections(
+        "active",
+        focus.value,
+        (_a = authStore2.currentUser) == null ? void 0 : _a.features
+      );
+    }
+  );
+  const settingsSections = computed(
+    () => {
+      var _a;
+      return getSortedSections(
+        "settings",
+        focus.value,
+        (_a = authStore2.currentUser) == null ? void 0 : _a.features
+      );
+    }
+  );
+  const weeklyGoalBadges = computed(() => {
+    var _a;
+    const days = daysStore.days;
+    const habits = customHabitsStore.customHabits;
+    const activeGoal = getActiveWeekGoal(
+      (_a = authStore2.currentUser) == null ? void 0 : _a.weekly_goals
+    );
+    const badges = [];
+    const counts = {
+      meditation: days.filter(
+        (day2) => {
+          var _a2;
+          return (((_a2 = day2.meditation_sessions) == null ? void 0 : _a2.length) ?? 0) > 0;
+        }
+      ).length,
+      sports: days.filter(
+        (day2) => {
+          var _a2;
+          return (((_a2 = day2.sports_activities) == null ? void 0 : _a2.length) ?? 0) > 0;
+        }
+      ).length,
+      clean: days.filter(
+        (day2) => day2.smoked_cannabis !== null && !day2.smoked_cannabis
+      ).length,
+      alcohol: days.filter(
+        (day2) => day2.drank_alcohol !== null && !day2.drank_alcohol
+      ).length
+    };
+    const habitStats = {};
+    for (const day2 of days) {
+      for (const entry of day2.custom_habit_entries || []) {
+        if (entry.value > 0) {
+          habitStats[entry.custom_habit_id] = (habitStats[entry.custom_habit_id] || 0) + 1;
+        }
+      }
+    }
+    const habitGoals = (activeGoal == null ? void 0 : activeGoal.custom_habit_goals) || [];
+    const customHabitsWithGoals = habits.map((habit) => {
+      var _a2;
+      return {
+        habit,
+        goalCount: ((_a2 = habitGoals.find(
+          (habitGoal) => habitGoal.custom_habit_id === habit.id
+        )) == null ? void 0 : _a2.days_per_week) ?? 0,
+        count: habitStats[habit.id] ?? 0
+      };
+    }).filter((item) => item.goalCount > 0 || item.count > 0);
+    for (const section of activeSections.value) {
+      if (section.key === "customHabits") {
+        for (const item of customHabitsWithGoals) {
+          badges.push({
+            key: `custom-${item.habit.id}`,
+            type: "custom",
+            count: item.count,
+            weeklyGoalCount: item.goalCount,
+            emoji: item.habit.emoji || item.habit.label.charAt(0).toUpperCase()
+          });
+        }
+      } else {
+        const goalMap = {
+          sports: (activeGoal == null ? void 0 : activeGoal.sports_count) ?? 0,
+          meditation: (activeGoal == null ? void 0 : activeGoal.meditation_sessions_count) ?? 0,
+          alcohol: (activeGoal == null ? void 0 : activeGoal.clean_alcohol_days_count) ?? 0,
+          weed: (activeGoal == null ? void 0 : activeGoal.clean_days_count) ?? 0
+        };
+        const countKey = section.key === "weed" ? "clean" : section.key;
+        badges.push({
+          key: section.key,
+          type: section.badgeType,
+          count: counts[countKey] ?? 0,
+          weeklyGoalCount: goalMap[section.key] ?? 0
+        });
+      }
+    }
+    return badges;
+  });
+  function getProgress(user) {
+    const goal = getActiveWeekGoal(user.weekly_goals);
+    if (!goal) return [];
+    const items = [];
+    const features = user.features;
+    for (const section of activeSections.value) {
+      const entries = getProgressEntries(section.key, goal, features);
+      items.push(...entries);
+    }
+    return items;
+  }
+  function getProgressEntries(key, goal, features) {
+    if (key === "customHabits") {
+      if (!(features == null ? void 0 : features.custom_habits) || !goal.custom_habit_goals) {
+        return [];
+      }
+      return goal.custom_habit_goals.filter((habitGoal) => habitGoal.days_per_week > 0).map((habitGoal) => ({
+        id: `habit-${habitGoal.custom_habit_id}`,
+        emoji: "✨",
+        achieved: habitGoal.reached ?? 0,
+        goal: habitGoal.days_per_week,
+        percentage: getProgressPercentage(
+          habitGoal.reached ?? 0,
+          habitGoal.days_per_week
+        )
+      }));
+    }
+    const configs = {
+      sports: (features == null ? void 0 : features.sports) && goal.sports_count > 0 ? {
+        featureKey: "sports",
+        achieved: goal.sports_reached ?? 0,
+        goalVal: goal.sports_count,
+        emoji: "🏋️"
+      } : null,
+      meditation: (features == null ? void 0 : features.meditation) && goal.meditation_sessions_count > 0 ? {
+        featureKey: "meditation",
+        achieved: goal.meditation_sessions_reached ?? 0,
+        goalVal: goal.meditation_sessions_count,
+        emoji: "🧘"
+      } : null,
+      alcohol: (features == null ? void 0 : features.alcohol) && goal.clean_alcohol_days_count > 0 ? {
+        featureKey: "alcohol",
+        achieved: goal.clean_alcohol_days_reached ?? 0,
+        goalVal: goal.clean_alcohol_days_count,
+        emoji: "🍷"
+      } : null,
+      weed: (features == null ? void 0 : features.cannabis) && goal.clean_days_count > 0 ? {
+        featureKey: "cannabis",
+        achieved: goal.clean_days_reached ?? 0,
+        goalVal: goal.clean_days_count,
+        emoji: "🌿"
+      } : null
+    };
+    const data8 = configs[key];
+    if (!data8) return [];
+    return [
+      {
+        id: key,
+        emoji: data8.emoji,
+        achieved: data8.achieved,
+        goal: data8.goalVal,
+        percentage: getProgressPercentage(data8.achieved, data8.goalVal)
+      }
+    ];
+  }
+  return {
+    focus,
+    focusInfo,
+    sections,
+    activeSections,
+    settingsSections,
+    weeklyGoalBadges,
+    getProgress
+  };
+}
 const _hoisted_1$S = {
   key: 0,
   class: "absolute -right-1 top-0"
@@ -38434,7 +38749,7 @@ const _hoisted_5$h = { key: 2 };
 const _hoisted_6$f = { key: 3 };
 const _hoisted_7$c = { key: 4 };
 const _hoisted_8$a = { key: 5 };
-const _hoisted_9$9 = { class: "text-xs font-bold" };
+const _hoisted_9$8 = { class: "text-xs font-bold" };
 const _sfc_main$W = /* @__PURE__ */ defineComponent({
   __name: "DayCalendarCard",
   props: {
@@ -38445,7 +38760,9 @@ const _sfc_main$W = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     const { currentUser } = useAuthStore();
+    const { focus } = useHabits();
     const sportsTypesStore = useSportsTypesStore();
+    const customHabitsStore = useCustomHabitsStore();
     const isCurrentDay = computed(() => {
       return props.day.date === props.selectedDate;
     });
@@ -38454,21 +38771,6 @@ const _sfc_main$W = /* @__PURE__ */ defineComponent({
         return true;
       }
       return new Date(props.day.date).getMonth() + 1 === props.currentMonth;
-    });
-    const focus = computed(() => {
-      if (currentUser == null ? void 0 : currentUser.focus) {
-        return currentUser.focus;
-      }
-      const features = currentUser == null ? void 0 : currentUser.features;
-      if (!features) {
-        return null;
-      }
-      if (features.cannabis) return TFeatureEnum.CANNABIS;
-      if (features.alcohol) return TFeatureEnum.ALCOHOL;
-      if (features.sports) return TFeatureEnum.SPORTS;
-      if (features.meditation) return TFeatureEnum.MEDITATION;
-      if (features.custom_habits) return TFeatureEnum.CUSTOM_HABITS;
-      return null;
     });
     const focusField = computed(() => {
       switch (focus.value) {
@@ -38534,8 +38836,20 @@ const _sfc_main$W = /* @__PURE__ */ defineComponent({
         }
       )) == null ? void 0 : _b.icon;
     });
+    const customHabitIcons = computed(() => {
+      const entries = props.day.custom_habit_entries;
+      if (!(entries == null ? void 0 : entries.length)) {
+        return [];
+      }
+      const habits = customHabitsStore.customHabits;
+      return entries.filter((entry) => entry.value > 0).map((entry) => {
+        var _a, _b;
+        const habit = habits.find((h2) => h2.id === entry.custom_habit_id);
+        return (habit == null ? void 0 : habit.emoji) || ((_b = (_a = habit == null ? void 0 : habit.label) == null ? void 0 : _a.charAt(0)) == null ? void 0 : _b.toUpperCase()) || "✓";
+      });
+    });
     return (_ctx, _cache) => {
-      var _a, _b, _c, _d, _e2, _f, _g, _h, _i, _j, _k, _l, _m;
+      var _a, _b, _c, _d, _e2, _f, _g, _h, _i, _j, _k, _l;
       return openBlock(), createElementBlock("div", {
         class: normalizeClass([
           {
@@ -38557,15 +38871,21 @@ const _sfc_main$W = /* @__PURE__ */ defineComponent({
           }, [
             shouldUpdate.value ? (openBlock(), createElementBlock("span", _hoisted_1$S, "⚠️")) : createCommentVNode("", true),
             createBaseVNode("span", _hoisted_2$F, [
-              ((_b = (_a = unref(currentUser)) == null ? void 0 : _a.features) == null ? void 0 : _b.meditation) && focus.value !== unref(TFeatureEnum).MEDITATION && ((_c = props.day.meditation_sessions) == null ? void 0 : _c.length) ? (openBlock(), createElementBlock("span", _hoisted_3$z, "🧘‍♂️")) : createCommentVNode("", true),
-              ((_e2 = (_d = unref(currentUser)) == null ? void 0 : _d.features) == null ? void 0 : _e2.sports) && focus.value !== unref(TFeatureEnum).SPORTS && ((_f = props.day.sports_activities) == null ? void 0 : _f.length) ? (openBlock(), createElementBlock("span", _hoisted_4$p, toDisplayString(sportIcon.value), 1)) : createCommentVNode("", true),
-              ((_h = (_g = unref(currentUser)) == null ? void 0 : _g.features) == null ? void 0 : _h.alcohol) && focus.value !== unref(TFeatureEnum).ALCOHOL && props.day.drank_alcohol ? (openBlock(), createElementBlock("span", _hoisted_5$h, "🍷")) : createCommentVNode("", true),
-              ((_j = (_i = unref(currentUser)) == null ? void 0 : _i.features) == null ? void 0 : _j.cannabis) && focus.value !== unref(TFeatureEnum).CANNABIS && props.day.smoked_cannabis ? (openBlock(), createElementBlock("span", _hoisted_6$f, "🌿")) : createCommentVNode("", true),
-              ((_l = (_k = unref(currentUser)) == null ? void 0 : _k.features) == null ? void 0 : _l.custom_habits) && focus.value !== unref(TFeatureEnum).CUSTOM_HABITS && ((_m = props.day.custom_habit_entries) == null ? void 0 : _m.length) ? (openBlock(), createElementBlock("span", _hoisted_7$c, "✅")) : createCommentVNode("", true),
+              ((_b = (_a = unref(currentUser)) == null ? void 0 : _a.features) == null ? void 0 : _b.sports) && unref(focus) !== unref(TFeatureEnum).SPORTS && ((_c = props.day.sports_activities) == null ? void 0 : _c.length) ? (openBlock(), createElementBlock("span", _hoisted_3$z, toDisplayString(sportIcon.value), 1)) : createCommentVNode("", true),
+              ((_e2 = (_d = unref(currentUser)) == null ? void 0 : _d.features) == null ? void 0 : _e2.meditation) && unref(focus) !== unref(TFeatureEnum).MEDITATION && ((_f = props.day.meditation_sessions) == null ? void 0 : _f.length) ? (openBlock(), createElementBlock("span", _hoisted_4$p, "🧘‍♂️")) : createCommentVNode("", true),
+              ((_h = (_g = unref(currentUser)) == null ? void 0 : _g.features) == null ? void 0 : _h.custom_habits) && unref(focus) !== unref(TFeatureEnum).CUSTOM_HABITS && customHabitIcons.value.length ? (openBlock(), createElementBlock("span", _hoisted_5$h, [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(customHabitIcons.value, (icon4, index) => {
+                  return openBlock(), createElementBlock(Fragment, { key: index }, [
+                    createTextVNode(toDisplayString(icon4), 1)
+                  ], 64);
+                }), 128))
+              ])) : createCommentVNode("", true),
+              ((_j = (_i = unref(currentUser)) == null ? void 0 : _i.features) == null ? void 0 : _j.alcohol) && unref(focus) !== unref(TFeatureEnum).ALCOHOL && props.day.drank_alcohol ? (openBlock(), createElementBlock("span", _hoisted_6$f, "🍷")) : createCommentVNode("", true),
+              ((_l = (_k = unref(currentUser)) == null ? void 0 : _k.features) == null ? void 0 : _l.cannabis) && unref(focus) !== unref(TFeatureEnum).CANNABIS && props.day.smoked_cannabis ? (openBlock(), createElementBlock("span", _hoisted_7$c, "🌿")) : createCommentVNode("", true),
               props.day.notes ? (openBlock(), createElementBlock("span", _hoisted_8$a, "✍️")) : createCommentVNode("", true)
             ]),
             createBaseVNode("p", null, toDisplayString(unref(DateTime).fromISO(props.day.date).toFormat("dd")), 1),
-            createBaseVNode("span", _hoisted_9$9, toDisplayString(unref(DateTime).fromISO(props.day.date).setLocale("de").toFormat("ccc")), 1)
+            createBaseVNode("span", _hoisted_9$8, toDisplayString(unref(DateTime).fromISO(props.day.date).setLocale("de").toFormat("ccc")), 1)
           ], 2)
         ], 2)
       ], 2);
@@ -41839,7 +42159,7 @@ const _sfc_main$Q = /* @__PURE__ */ defineComponent({
 });
 const _hoisted_1$M = { class: "space-y-6" };
 const _hoisted_2$A = {
-  key: 5,
+  key: 1,
   class: "rounded-xl bg-red-50 p-4 text-sm text-red-700 dark:bg-red-900/20 dark:text-red-300"
 };
 const _hoisted_3$v = { class: "flex items-center gap-2" };
@@ -41859,6 +42179,7 @@ const _sfc_main$P = /* @__PURE__ */ defineComponent({
     const existingGoal = useModel(__props, "existingGoal");
     const authStore2 = useAuthStore();
     const customHabitsStore = useCustomHabitsStore();
+    const { activeSections } = useHabits();
     const isLoading = reactive({ value: false });
     const error = reactive({ value: "" });
     const formData = reactive({
@@ -41911,6 +42232,32 @@ const _sfc_main$P = /* @__PURE__ */ defineComponent({
     function getHabitColor(index) {
       return habitColors[index % habitColors.length];
     }
+    const modelKeyMap = {
+      sports: "sports",
+      meditation: "meditation",
+      customHabits: null,
+      // Custom habits handled separately
+      alcohol: "cleanAlcoholDays",
+      weed: "cleanDays"
+    };
+    const sortedGoalSections = computed(() => {
+      return activeSections.value.filter((section) => section.key !== "customHabits").map((section) => ({
+        ...section,
+        modelKey: modelKeyMap[section.key]
+      })).filter(
+        (section) => section.modelKey !== null
+      );
+    });
+    const showCustomHabits = computed(() => {
+      var _a, _b;
+      return ((_b = (_a = authStore2.currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.custom_habits) && habits.value.length > 0;
+    });
+    const customHabitsIndex = computed(() => {
+      const customHabitsSection = activeSections.value.findIndex(
+        (s2) => s2.key === "customHabits"
+      );
+      return customHabitsSection;
+    });
     const isFormValid = computed(() => {
       return formData.sports >= 0 && formData.sports <= 7 && formData.meditation >= 0 && formData.meditation <= 7 && formData.cleanDays >= 0 && formData.cleanDays <= 7 && formData.cleanAlcoholDays >= 0 && formData.cleanAlcoholDays <= 7;
     });
@@ -41992,96 +42339,83 @@ const _sfc_main$P = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createBlock(_sfc_main$S, {
         modelValue: isOpen.value,
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => isOpen.value = $event),
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isOpen.value = $event),
         title: "Wöchentliche Ziele",
         description: "Setze deine wöchentlichen Ziele.",
         onSubmit: handleSubmit
       }, {
-        default: withCtx(() => {
-          var _a, _b, _c, _d, _e2, _f, _g, _h, _i, _j;
-          return [
-            createBaseVNode("div", _hoisted_1$M, [
-              ((_b = (_a = unref(authStore2).currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.cannabis) ? (openBlock(), createBlock(_sfc_main$Q, {
-                key: 0,
-                modelValue: formData.cleanDays,
-                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => formData.cleanDays = $event),
-                title: "Cleane Tage",
-                emoji: "🌿",
-                "gradient-from": "green",
-                "gradient-to": "emerald",
-                "icon-gradient-from": "green",
-                "icon-gradient-to": "emerald"
-              }, null, 8, ["modelValue"])) : createCommentVNode("", true),
-              ((_d = (_c = unref(authStore2).currentUser) == null ? void 0 : _c.features) == null ? void 0 : _d.alcohol) ? (openBlock(), createBlock(_sfc_main$Q, {
-                key: 1,
-                modelValue: formData.cleanAlcoholDays,
-                "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => formData.cleanAlcoholDays = $event),
-                title: "Trockene Tage",
-                emoji: "💧",
-                "gradient-from": "blue",
-                "gradient-to": "cyan",
-                "icon-gradient-from": "blue",
-                "icon-gradient-to": "cyan"
-              }, null, 8, ["modelValue"])) : createCommentVNode("", true),
-              ((_f = (_e2 = unref(authStore2).currentUser) == null ? void 0 : _e2.features) == null ? void 0 : _f.sports) ? (openBlock(), createBlock(_sfc_main$Q, {
-                key: 2,
-                modelValue: formData.sports,
-                "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => formData.sports = $event),
-                title: "Sportaktivitäten",
-                emoji: "🏋️‍♂️",
-                "gradient-from": "orange",
-                "gradient-to": "red",
-                "icon-gradient-from": "orange",
-                "icon-gradient-to": "red"
-              }, null, 8, ["modelValue"])) : createCommentVNode("", true),
-              ((_h = (_g = unref(authStore2).currentUser) == null ? void 0 : _g.features) == null ? void 0 : _h.meditation) ? (openBlock(), createBlock(_sfc_main$Q, {
-                key: 3,
-                modelValue: formData.meditation,
-                "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => formData.meditation = $event),
-                title: "Meditationssitzungen",
-                emoji: "🧘‍♂️",
-                "gradient-from": "purple",
-                "gradient-to": "indigo",
-                "icon-gradient-from": "purple",
-                "icon-gradient-to": "indigo"
-              }, null, 8, ["modelValue"])) : createCommentVNode("", true),
-              ((_j = (_i = unref(authStore2).currentUser) == null ? void 0 : _i.features) == null ? void 0 : _j.custom_habits) && habits.value.length > 0 ? (openBlock(), createElementBlock(Fragment, { key: 4 }, [
-                _cache[5] || (_cache[5] = createBaseVNode("div", { class: "dark:border-dark-600 border-t border-gray-200 pt-4" }, [
-                  createBaseVNode("p", { class: "dark:text-dark-400 mb-4 text-sm font-medium text-gray-600" }, " Eigene Habits ")
-                ], -1)),
-                (openBlock(true), createElementBlock(Fragment, null, renderList(habits.value, (habit, index) => {
-                  return openBlock(), createBlock(_sfc_main$Q, {
-                    key: habit.id,
-                    modelValue: customHabitGoals.value[habit.id],
-                    "onUpdate:modelValue": ($event) => customHabitGoals.value[habit.id] = $event,
-                    title: habit.label,
-                    emoji: habit.emoji || habit.label.charAt(0).toUpperCase(),
-                    "gradient-from": getHabitColor(index).gradientFrom,
-                    "gradient-to": getHabitColor(index).gradientTo,
-                    "icon-gradient-from": getHabitColor(index).iconGradientFrom,
-                    "icon-gradient-to": getHabitColor(index).iconGradientTo
-                  }, null, 8, ["modelValue", "onUpdate:modelValue", "title", "emoji", "gradient-from", "gradient-to", "icon-gradient-from", "icon-gradient-to"]);
-                }), 128))
-              ], 64)) : createCommentVNode("", true),
-              error.value ? (openBlock(), createElementBlock("div", _hoisted_2$A, [
-                createBaseVNode("div", _hoisted_3$v, [
-                  _cache[6] || (_cache[6] = createBaseVNode("svg", {
-                    class: "h-5 w-5 text-red-500",
-                    fill: "currentColor",
-                    viewBox: "0 0 20 20"
-                  }, [
-                    createBaseVNode("path", {
-                      "fill-rule": "evenodd",
-                      d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
-                      "clip-rule": "evenodd"
-                    })
+        default: withCtx(() => [
+          createBaseVNode("div", _hoisted_1$M, [
+            (openBlock(true), createElementBlock(Fragment, null, renderList(sortedGoalSections.value, (section, idx) => {
+              return openBlock(), createElementBlock(Fragment, {
+                key: section.key
+              }, [
+                showCustomHabits.value && customHabitsIndex.value === idx ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+                  _cache[1] || (_cache[1] = createBaseVNode("div", { class: "dark:border-dark-600 border-t border-gray-200 pt-4" }, [
+                    createBaseVNode("p", { class: "dark:text-dark-400 mb-4 text-sm font-medium text-gray-600" }, " Eigene Habits ")
                   ], -1)),
-                  createTextVNode(" " + toDisplayString(error.value), 1)
-                ])
-              ])) : createCommentVNode("", true)
-            ])
-          ];
-        }),
+                  (openBlock(true), createElementBlock(Fragment, null, renderList(habits.value, (habit, habitIndex) => {
+                    return openBlock(), createBlock(_sfc_main$Q, {
+                      key: habit.id,
+                      modelValue: customHabitGoals.value[habit.id],
+                      "onUpdate:modelValue": ($event) => customHabitGoals.value[habit.id] = $event,
+                      title: habit.label,
+                      emoji: habit.emoji || habit.label.charAt(0).toUpperCase(),
+                      "gradient-from": getHabitColor(habitIndex).gradientFrom,
+                      "gradient-to": getHabitColor(habitIndex).gradientTo,
+                      "icon-gradient-from": getHabitColor(habitIndex).iconGradientFrom,
+                      "icon-gradient-to": getHabitColor(habitIndex).iconGradientTo
+                    }, null, 8, ["modelValue", "onUpdate:modelValue", "title", "emoji", "gradient-from", "gradient-to", "icon-gradient-from", "icon-gradient-to"]);
+                  }), 128))
+                ], 64)) : createCommentVNode("", true),
+                createVNode(_sfc_main$Q, {
+                  modelValue: formData[section.modelKey],
+                  "onUpdate:modelValue": ($event) => formData[section.modelKey] = $event,
+                  title: section.goalTitle,
+                  emoji: section.icon,
+                  "gradient-from": section.gradientFrom,
+                  "gradient-to": section.gradientTo,
+                  "icon-gradient-from": section.gradientFrom,
+                  "icon-gradient-to": section.gradientTo
+                }, null, 8, ["modelValue", "onUpdate:modelValue", "title", "emoji", "gradient-from", "gradient-to", "icon-gradient-from", "icon-gradient-to"])
+              ], 64);
+            }), 128)),
+            showCustomHabits.value && customHabitsIndex.value >= sortedGoalSections.value.length ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+              _cache[2] || (_cache[2] = createBaseVNode("div", { class: "dark:border-dark-600 border-t border-gray-200 pt-4" }, [
+                createBaseVNode("p", { class: "dark:text-dark-400 mb-4 text-sm font-medium text-gray-600" }, " Eigene Habits ")
+              ], -1)),
+              (openBlock(true), createElementBlock(Fragment, null, renderList(habits.value, (habit, habitIndex) => {
+                return openBlock(), createBlock(_sfc_main$Q, {
+                  key: habit.id,
+                  modelValue: customHabitGoals.value[habit.id],
+                  "onUpdate:modelValue": ($event) => customHabitGoals.value[habit.id] = $event,
+                  title: habit.label,
+                  emoji: habit.emoji || habit.label.charAt(0).toUpperCase(),
+                  "gradient-from": getHabitColor(habitIndex).gradientFrom,
+                  "gradient-to": getHabitColor(habitIndex).gradientTo,
+                  "icon-gradient-from": getHabitColor(habitIndex).iconGradientFrom,
+                  "icon-gradient-to": getHabitColor(habitIndex).iconGradientTo
+                }, null, 8, ["modelValue", "onUpdate:modelValue", "title", "emoji", "gradient-from", "gradient-to", "icon-gradient-from", "icon-gradient-to"]);
+              }), 128))
+            ], 64)) : createCommentVNode("", true),
+            error.value ? (openBlock(), createElementBlock("div", _hoisted_2$A, [
+              createBaseVNode("div", _hoisted_3$v, [
+                _cache[3] || (_cache[3] = createBaseVNode("svg", {
+                  class: "h-5 w-5 text-red-500",
+                  fill: "currentColor",
+                  viewBox: "0 0 20 20"
+                }, [
+                  createBaseVNode("path", {
+                    "fill-rule": "evenodd",
+                    d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
+                    "clip-rule": "evenodd"
+                  })
+                ], -1)),
+                createTextVNode(" " + toDisplayString(error.value), 1)
+              ])
+            ])) : createCommentVNode("", true)
+          ])
+        ]),
         _: 1
       }, 8, ["modelValue"]);
     };
@@ -42100,6 +42434,8 @@ const _sfc_main$O = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const daysStore = useDaysStore();
     const customHabitsStore = useCustomHabitsStore();
+    const authStore2 = useAuthStore();
+    const { focus, weeklyGoalBadges } = useHabits();
     const days = computed(() => daysStore.days);
     const selectedDate = computed(() => daysStore.selectedDate);
     const { el } = useCalendarNavigation();
@@ -42109,51 +42445,12 @@ const _sfc_main$O = /* @__PURE__ */ defineComponent({
     const endDate = computed(() => {
       return DateTime.fromISO(selectedDate.value).endOf("week").toFormat("dd.MM.yyyy");
     });
-    const meditationSessionsCount = computed(
-      () => days.value.filter((d2) => {
-        var _a;
-        return ((_a = d2.meditation_sessions) == null ? void 0 : _a.length) ?? 0 > 0;
-      }).length
-    );
-    const sportsCount = computed(
-      () => days.value.filter((d2) => {
-        var _a;
-        return ((_a = d2.sports_activities) == null ? void 0 : _a.length) ?? 0 > 0;
-      }).length
-    );
-    const cleanDaysCount = computed(
-      () => days.value.filter(
-        (d2) => d2.smoked_cannabis !== null && !d2.smoked_cannabis
-      ).length
-    );
-    const cleanAlcoholDaysCount = computed(
-      () => days.value.filter(
-        (d2) => d2.drank_alcohol !== null && !d2.drank_alcohol
-      ).length
-    );
     const cannabisConsumptionDays = computed(
       () => days.value.filter((d2) => d2.smoked_cannabis === true).length
     );
     const alcoholConsumptionDays = computed(
       () => days.value.filter((d2) => d2.drank_alcohol === true).length
     );
-    const authStore2 = useAuthStore();
-    const focus = computed(() => {
-      var _a, _b;
-      if ((_a = authStore2.currentUser) == null ? void 0 : _a.focus) {
-        return authStore2.currentUser.focus;
-      }
-      const features = (_b = authStore2.currentUser) == null ? void 0 : _b.features;
-      if (!features) {
-        return null;
-      }
-      if (features.cannabis) return TFeatureEnum.CANNABIS;
-      if (features.alcohol) return TFeatureEnum.ALCOHOL;
-      if (features.sports) return TFeatureEnum.SPORTS;
-      if (features.meditation) return TFeatureEnum.MEDITATION;
-      if (features.custom_habits) return TFeatureEnum.CUSTOM_HABITS;
-      return null;
-    });
     const bgClass = computed(() => {
       if (focus.value === TFeatureEnum.CANNABIS) {
         return consumptionDaysOfWeekBg(cannabisConsumptionDays.value);
@@ -42174,33 +42471,6 @@ const _sfc_main$O = /* @__PURE__ */ defineComponent({
       )[0];
     });
     const isGoalFormOpen = ref(false);
-    const habits = computed(() => customHabitsStore.customHabits);
-    const customHabitWeeklyStats = computed(() => {
-      const habitStats = {};
-      for (const day2 of days.value) {
-        const entries = day2.custom_habit_entries || [];
-        for (const entry of entries) {
-          if (entry.value > 0) {
-            habitStats[entry.custom_habit_id] = (habitStats[entry.custom_habit_id] || 0) + 1;
-          }
-        }
-      }
-      return habitStats;
-    });
-    const customHabitsWithGoals = computed(() => {
-      var _a;
-      const habitGoals = ((_a = currentGoal.value) == null ? void 0 : _a.custom_habit_goals) || [];
-      return habits.value.map((habit) => {
-        const goalEntry = habitGoals.find(
-          (g2) => g2.custom_habit_id === habit.id
-        );
-        return {
-          habit,
-          goal: (goalEntry == null ? void 0 : goalEntry.days_per_week) ?? 0,
-          count: customHabitWeeklyStats.value[habit.id] ?? 0
-        };
-      }).filter((h2) => h2.goal > 0 || h2.count > 0);
-    });
     onMounted(async () => {
       await daysStore.refreshCurrentPeriod();
       customHabitsStore.fetchHabits();
@@ -42212,7 +42482,6 @@ const _sfc_main$O = /* @__PURE__ */ defineComponent({
       isGoalFormOpen.value = true;
     }
     return (_ctx, _cache) => {
-      var _a, _b, _c, _d, _e2, _f, _g, _h, _i, _j, _k, _l, _m, _n;
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", {
           class: "-mx-6 pb-2 shadow",
@@ -42250,39 +42519,15 @@ const _sfc_main$O = /* @__PURE__ */ defineComponent({
         ], 512),
         createBaseVNode("div", _hoisted_4$o, [
           createBaseVNode("div", _hoisted_5$g, [
-            ((_b = (_a = unref(authStore2).currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.cannabis) ? (openBlock(), createBlock(_sfc_main$U, {
-              key: 0,
-              type: "clean",
-              count: cleanDaysCount.value,
-              "weekly-goal-count": ((_c = currentGoal.value) == null ? void 0 : _c.clean_days_count) ?? 0
-            }, null, 8, ["count", "weekly-goal-count"])) : createCommentVNode("", true),
-            ((_e2 = (_d = unref(authStore2).currentUser) == null ? void 0 : _d.features) == null ? void 0 : _e2.alcohol) ? (openBlock(), createBlock(_sfc_main$U, {
-              key: 1,
-              type: "alcohol",
-              count: cleanAlcoholDaysCount.value,
-              "weekly-goal-count": ((_f = currentGoal.value) == null ? void 0 : _f.clean_alcohol_days_count) ?? 0
-            }, null, 8, ["count", "weekly-goal-count"])) : createCommentVNode("", true),
-            ((_h = (_g = unref(authStore2).currentUser) == null ? void 0 : _g.features) == null ? void 0 : _h.sports) ? (openBlock(), createBlock(_sfc_main$U, {
-              key: 2,
-              type: "sports",
-              count: sportsCount.value,
-              "weekly-goal-count": ((_i = currentGoal.value) == null ? void 0 : _i.sports_count) ?? 0
-            }, null, 8, ["count", "weekly-goal-count"])) : createCommentVNode("", true),
-            ((_k = (_j = unref(authStore2).currentUser) == null ? void 0 : _j.features) == null ? void 0 : _k.meditation) ? (openBlock(), createBlock(_sfc_main$U, {
-              key: 3,
-              type: "meditation",
-              count: meditationSessionsCount.value,
-              "weekly-goal-count": ((_l = currentGoal.value) == null ? void 0 : _l.meditation_sessions_count) ?? 0
-            }, null, 8, ["count", "weekly-goal-count"])) : createCommentVNode("", true),
-            ((_n = (_m = unref(authStore2).currentUser) == null ? void 0 : _m.features) == null ? void 0 : _n.custom_habits) ? (openBlock(true), createElementBlock(Fragment, { key: 4 }, renderList(customHabitsWithGoals.value, (habitData) => {
+            (openBlock(true), createElementBlock(Fragment, null, renderList(unref(weeklyGoalBadges), (badge) => {
               return openBlock(), createBlock(_sfc_main$U, {
-                key: habitData.habit.id,
-                type: "custom",
-                emoji: habitData.habit.emoji || habitData.habit.label.charAt(0).toUpperCase(),
-                count: habitData.count,
-                "weekly-goal-count": habitData.goal
-              }, null, 8, ["emoji", "count", "weekly-goal-count"]);
-            }), 128)) : createCommentVNode("", true)
+                key: badge.key,
+                type: badge.type,
+                count: badge.count,
+                "weekly-goal-count": badge.weeklyGoalCount,
+                emoji: badge.emoji
+              }, null, 8, ["type", "count", "weekly-goal-count", "emoji"]);
+            }), 128))
           ]),
           createVNode(unref(render$l), {
             class: "dark:text-dark-300 h-5 w-5 text-gray-700",
@@ -43050,11 +43295,11 @@ const _hoisted_5$d = {
 const _hoisted_6$c = { class: "flex h-full items-center justify-center" };
 const _hoisted_7$a = { class: "flex flex-col items-center" };
 const _hoisted_8$9 = { class: "mb-4 text-8xl font-bold text-white/70" };
-const _hoisted_9$8 = {
+const _hoisted_9$7 = {
   key: 2,
   class: "space-y-6"
 };
-const _hoisted_10$7 = { class: "dark:border-dark-600 dark:bg-dark-800 relative rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm" };
+const _hoisted_10$6 = { class: "dark:border-dark-600 dark:bg-dark-800 relative rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm" };
 const _hoisted_11$5 = { class: "dark:border-dark-800 mx-auto flex items-center gap-6" };
 const _hoisted_12$5 = { class: "dark:text-dark-300 text-3xl font-medium text-gray-700" };
 const _hoisted_13$5 = { class: "dark:text-dark-400 text-xs text-gray-500" };
@@ -43237,8 +43482,8 @@ const _sfc_main$F = /* @__PURE__ */ defineComponent({
             ])
           ])
         ])) : createCommentVNode("", true),
-        isCurrentDay.value && !isCounting.value && !isInCountdown.value ? (openBlock(), createElementBlock("div", _hoisted_9$8, [
-          createBaseVNode("div", _hoisted_10$7, [
+        isCurrentDay.value && !isCounting.value && !isInCountdown.value ? (openBlock(), createElementBlock("div", _hoisted_9$7, [
+          createBaseVNode("div", _hoisted_10$6, [
             createBaseVNode("div", _hoisted_11$5, [
               createBaseVNode("div", null, [
                 createBaseVNode("div", _hoisted_12$5, toDisplayString(formattedTime.value), 1),
@@ -44002,8 +44247,8 @@ const _hoisted_8$8 = {
   id: "todo-section-overdue",
   class: "scroll-mt-4"
 };
-const _hoisted_9$7 = { class: "space-y-2" };
-const _hoisted_10$6 = {
+const _hoisted_9$6 = { class: "space-y-2" };
+const _hoisted_10$5 = {
   key: 2,
   id: "todo-section-upcoming",
   class: "scroll-mt-4"
@@ -44132,7 +44377,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
           ])) : createCommentVNode("", true),
           overdueTodos.value.length > 0 ? (openBlock(), createElementBlock("section", _hoisted_8$8, [
             _cache[1] || (_cache[1] = createBaseVNode("h3", { class: "mb-2 flex items-center gap-2 text-sm font-semibold text-red-600 dark:text-red-400" }, " 🔴 Überfällig ", -1)),
-            createBaseVNode("div", _hoisted_9$7, [
+            createBaseVNode("div", _hoisted_9$6, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(overdueTodos.value, (todo) => {
                 return openBlock(), createBlock(_sfc_main$w, {
                   key: todo.id,
@@ -44145,7 +44390,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
               }), 128))
             ])
           ])) : createCommentVNode("", true),
-          upcomingTodos.value.length > 0 ? (openBlock(), createElementBlock("section", _hoisted_10$6, [
+          upcomingTodos.value.length > 0 ? (openBlock(), createElementBlock("section", _hoisted_10$5, [
             _cache[2] || (_cache[2] = createBaseVNode("h3", { class: "mb-2 flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-300" }, " 📅 Anstehend ", -1)),
             createBaseVNode("div", _hoisted_11$4, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(upcomingTodos.value, (todo) => {
@@ -44267,8 +44512,8 @@ const _hoisted_5$a = { class: "flex items-center gap-2" };
 const _hoisted_6$9 = { class: "text-lg" };
 const _hoisted_7$8 = { class: "dark:text-dark-200 text-sm text-gray-700" };
 const _hoisted_8$7 = { class: "dark:bg-dark-700 dark:text-dark-400 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500" };
-const _hoisted_9$6 = { class: "flex gap-1" };
-const _hoisted_10$5 = ["onClick"];
+const _hoisted_9$5 = { class: "flex gap-1" };
+const _hoisted_10$4 = ["onClick"];
 const _hoisted_11$3 = ["onClick"];
 const _hoisted_12$3 = {
   key: 1,
@@ -44409,14 +44654,14 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                         createBaseVNode("span", _hoisted_7$8, toDisplayString(habit.label), 1),
                         createBaseVNode("span", _hoisted_8$7, toDisplayString(habit.type === "boolean" ? "Ja/Nein" : "Zähler"), 1)
                       ]),
-                      createBaseVNode("div", _hoisted_9$6, [
+                      createBaseVNode("div", _hoisted_9$5, [
                         createBaseVNode("button", {
                           onClick: ($event) => startEdit(habit),
                           class: "dark:hover:bg-dark-700 dark:text-dark-400 flex h-8 w-8 items-center justify-center rounded-md text-gray-500 transition-colors hover:bg-gray-100 hover:text-blue-600",
                           type: "button"
                         }, [
                           createVNode(PencilIcon, { class: "h-3 w-3" })
-                        ], 8, _hoisted_10$5),
+                        ], 8, _hoisted_10$4),
                         createBaseVNode("button", {
                           onClick: ($event) => requestDeleteHabit(habit),
                           class: "dark:hover:bg-dark-700 dark:text-dark-400 flex h-8 w-8 items-center justify-center rounded-md text-gray-500 transition-colors hover:bg-gray-100 hover:text-red-600",
@@ -44567,8 +44812,8 @@ const _hoisted_8$6 = {
   key: 0,
   class: "flex flex-col items-center gap-4"
 };
-const _hoisted_9$5 = ["disabled"];
-const _hoisted_10$4 = { class: "text-xl font-bold" };
+const _hoisted_9$4 = ["disabled"];
+const _hoisted_10$3 = { class: "text-xl font-bold" };
 const _hoisted_11$2 = { class: "dark:text-dark-400 text-sm text-gray-600" };
 const _hoisted_12$2 = {
   key: 1,
@@ -44724,8 +44969,8 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                   ]),
                   type: "button"
                 }, [
-                  createBaseVNode("span", _hoisted_10$4, toDisplayString(currentValue.value > 0 ? "✓" : "○"), 1)
-                ], 10, _hoisted_9$5),
+                  createBaseVNode("span", _hoisted_10$3, toDisplayString(currentValue.value > 0 ? "✓" : "○"), 1)
+                ], 10, _hoisted_9$4),
                 createBaseVNode("p", _hoisted_11$2, toDisplayString(currentValue.value > 0 ? "Erledigt" : "Nicht erledigt"), 1)
               ])) : (openBlock(), createElementBlock("div", _hoisted_12$2, [
                 createBaseVNode("div", _hoisted_13$2, [
@@ -44804,82 +45049,6 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const focusConfig = {
-  [TFeatureEnum.CANNABIS]: { icon: "🌿", label: "Weed" },
-  [TFeatureEnum.ALCOHOL]: { icon: "🍷", label: "Alkohol" },
-  [TFeatureEnum.SPORTS]: { icon: "🏋️‍♂️", label: "Sport" },
-  [TFeatureEnum.MEDITATION]: { icon: "🧘‍♂️", label: "Meditation" },
-  [TFeatureEnum.CUSTOM_HABITS]: { icon: "✨", label: "Habits" }
-};
-function useFocus() {
-  const authStore2 = useAuthStore();
-  const focus = computed(() => {
-    var _a, _b;
-    if ((_a = authStore2.currentUser) == null ? void 0 : _a.focus) {
-      return authStore2.currentUser.focus;
-    }
-    const features = (_b = authStore2.currentUser) == null ? void 0 : _b.features;
-    if (!features) return null;
-    if (features.cannabis) return TFeatureEnum.CANNABIS;
-    if (features.alcohol) return TFeatureEnum.ALCOHOL;
-    if (features.sports) return TFeatureEnum.SPORTS;
-    if (features.meditation) return TFeatureEnum.MEDITATION;
-    if (features.custom_habits) return TFeatureEnum.CUSTOM_HABITS;
-    return null;
-  });
-  const focusInfo = computed(() => {
-    if (!focus.value) return null;
-    return focusConfig[focus.value];
-  });
-  return {
-    focus,
-    focusInfo
-  };
-}
-const TRACKING_SECTIONS = [
-  {
-    key: "weed",
-    icon: "🌿",
-    title: "Weed Status",
-    featureKey: "cannabis",
-    component: "cannabis"
-  },
-  {
-    key: "alcohol",
-    icon: "🍷",
-    title: "Alkohol Status",
-    featureKey: "alcohol",
-    component: "alcohol"
-  },
-  {
-    key: "sports",
-    icon: "🏋️‍♂️",
-    title: "Sport Aktivitäten",
-    featureKey: "sports",
-    component: "sports"
-  },
-  {
-    key: "meditation",
-    icon: "🧘‍♂️",
-    title: "Meditation Sessions",
-    featureKey: "meditation",
-    component: "meditation"
-  },
-  {
-    key: "customHabits",
-    icon: "✨",
-    title: "Eigene Habits",
-    featureKey: "custom_habits",
-    component: "customHabits"
-  }
-];
-const SECTION_TO_FEATURE = {
-  weed: TFeatureEnum.CANNABIS,
-  alcohol: TFeatureEnum.ALCOHOL,
-  sports: TFeatureEnum.SPORTS,
-  meditation: TFeatureEnum.MEDITATION,
-  customHabits: TFeatureEnum.CUSTOM_HABITS
-};
 const _hoisted_1$o = { class: "space-y-3" };
 const _hoisted_2$k = { class: "mb-1 font-medium" };
 const _hoisted_3$h = { "data-intro-step": "tracking-sections" };
@@ -44888,9 +45057,8 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
   __name: "DayOverview",
   setup(__props, { expose: __expose }) {
     const daysStore = useDaysStore();
-    const authStore2 = useAuthStore();
     const currentDay = computed(() => daysStore.currentDay);
-    const { focus } = useFocus();
+    const { activeSections } = useHabits();
     const textarea = useTemplateRef("textarea");
     onClickOutside(textarea, () => {
       isEditingNotes.value = false;
@@ -44983,19 +45151,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
       const sessions = currentDay.value.meditation_sessions || [];
       return sessions.length > 0 ? sessions.map((s2) => s2.duration_in_minutes).join(", ") + " min" : "Keine Meditation heute";
     });
-    const sections = computed(() => {
-      var _a;
-      const features = (_a = authStore2.currentUser) == null ? void 0 : _a.features;
-      return TRACKING_SECTIONS.filter(
-        (s2) => (features == null ? void 0 : features[s2.featureKey]) ?? true
-      ).sort((a2, b2) => {
-        const aIsFocus = focus.value === SECTION_TO_FEATURE[a2.key];
-        const bIsFocus = focus.value === SECTION_TO_FEATURE[b2.key];
-        if (aIsFocus && !bIsFocus) return -1;
-        if (!aIsFocus && bIsFocus) return 1;
-        return 0;
-      });
-    });
+    const sections = activeSections;
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$o, [
         _cache[5] || (_cache[5] = createBaseVNode("div", { class: "dark:border-dark-600 flex items-center justify-between border-b border-gray-200 pb-2" }, [
@@ -45032,7 +45188,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
             createBaseVNode("span", { class: "dark:text-dark-400 text-xs font-medium uppercase tracking-wide text-gray-400" }, "Tracking")
           ], -1)),
           createBaseVNode("div", _hoisted_4$d, [
-            (openBlock(true), createElementBlock(Fragment, null, renderList(sections.value, (section) => {
+            (openBlock(true), createElementBlock(Fragment, null, renderList(unref(sections), (section) => {
               return openBlock(), createElementBlock(Fragment, {
                 key: section.key
               }, [
@@ -45144,11 +45300,11 @@ const _hoisted_7$6 = {
   class: "mb-6 flex flex-col items-center"
 };
 const _hoisted_8$5 = { class: "relative h-24 w-24" };
-const _hoisted_9$4 = {
+const _hoisted_9$3 = {
   class: "h-24 w-24 -rotate-90 transform",
   viewBox: "0 0 100 100"
 };
-const _hoisted_10$3 = ["stroke-dasharray"];
+const _hoisted_10$2 = ["stroke-dasharray"];
 const _hoisted_11$1 = { class: "absolute inset-0 flex items-center justify-center" };
 const _hoisted_12$1 = { class: "dark:text-dark-100 text-2xl font-bold text-gray-900" };
 const _hoisted_13$1 = { class: "mt-2 flex items-center gap-2" };
@@ -45436,7 +45592,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                       ]),
                       hasGoals.value ? (openBlock(), createElementBlock("div", _hoisted_7$6, [
                         createBaseVNode("div", _hoisted_8$5, [
-                          (openBlock(), createElementBlock("svg", _hoisted_9$4, [
+                          (openBlock(), createElementBlock("svg", _hoisted_9$3, [
                             _cache[3] || (_cache[3] = createBaseVNode("circle", {
                               cx: "50",
                               cy: "50",
@@ -45460,7 +45616,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                                 "text-yellow-500": overallProgress.value >= 40 && overallProgress.value < 70,
                                 "text-orange-500": overallProgress.value < 40
                               }])
-                            }, null, 10, _hoisted_10$3)
+                            }, null, 10, _hoisted_10$2)
                           ])),
                           createBaseVNode("div", _hoisted_11$1, [
                             createBaseVNode("span", _hoisted_12$1, toDisplayString(overallProgress.value) + "% ", 1)
@@ -48238,7 +48394,7 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
 const OnboardingWelcome = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["__scopeId", "data-v-d5f8bfe8"]]);
 const _hoisted_1$l = {
   key: 0,
-  class: "flex items-center gap-1.5 text-gray-600 dark:text-dark-300"
+  class: "dark:text-dark-300 flex items-center gap-1.5 text-gray-600"
 };
 const _hoisted_2$h = { class: "text-base" };
 const _hoisted_3$e = { class: "flex flex-col leading-tight" };
@@ -48246,7 +48402,7 @@ const _hoisted_4$a = { class: "text-xs font-semibold" };
 const _sfc_main$n = /* @__PURE__ */ defineComponent({
   __name: "FocusBadge",
   setup(__props) {
-    const { focusInfo } = useFocus();
+    const { focusInfo } = useHabits();
     return (_ctx, _cache) => {
       return unref(focusInfo) ? (openBlock(), createElementBlock("div", _hoisted_1$l, [
         createBaseVNode("span", _hoisted_2$h, toDisplayString(unref(focusInfo).icon), 1),
@@ -48434,17 +48590,13 @@ const _hoisted_5$5 = { class: "mt-1" };
 const _hoisted_6$4 = { key: 0 };
 const _hoisted_7$4 = ["disabled"];
 const _hoisted_8$3 = { key: 0 };
-const _hoisted_9$3 = { key: 1 };
-const _hoisted_10$2 = {
-  key: 0,
-  class: "mt-4 rounded-md bg-amber-50 px-3 py-2 text-center text-xs text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
-};
+const _hoisted_9$2 = { key: 1 };
 const _sfc_main$l = /* @__PURE__ */ defineComponent({
   __name: "Login",
   setup(__props) {
     const router2 = useRouter();
     const authStore2 = useAuthStore();
-    const apiBackendUrl = getCurrentApiConfig().baseUrl;
+    getCurrentApiConfig().baseUrl;
     const form = reactive({
       email: "",
       password: ""
@@ -48518,11 +48670,11 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                   disabled: unref(authStore2).isLoading,
                   class: "flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 }, [
-                  unref(authStore2).isLoading ? (openBlock(), createElementBlock("span", _hoisted_8$3, "Einloggen...")) : (openBlock(), createElementBlock("span", _hoisted_9$3, "Einloggen"))
+                  unref(authStore2).isLoading ? (openBlock(), createElementBlock("span", _hoisted_8$3, "Einloggen...")) : (openBlock(), createElementBlock("span", _hoisted_9$2, "Einloggen"))
                 ], 8, _hoisted_7$4)
               ])
             ], 32),
-            (openBlock(), createElementBlock("div", _hoisted_10$2, " API: " + toDisplayString(unref(apiBackendUrl)), 1))
+            createCommentVNode("", true)
           ])
         ])
       ]);
@@ -48716,17 +48868,16 @@ const _hoisted_1$f = {
   class: "dark:border-dark-700 dark:bg-dark-800 rounded-lg border border-gray-200 bg-white p-4",
   "data-intro-step": "settings-features"
 };
-const _hoisted_2$c = { class: "space-y-1" };
-const _hoisted_3$a = { class: "flex min-w-0 flex-1 items-center gap-3" };
-const _hoisted_4$6 = { class: "relative inline-flex flex-shrink-0 cursor-pointer items-center" };
-const _hoisted_5$3 = ["checked", "onChange", "disabled"];
-const _hoisted_6$2 = { class: "text-lg" };
-const _hoisted_7$2 = ["onClick", "disabled"];
-const _hoisted_8$2 = {
+const _hoisted_2$c = { class: "flex min-w-0 flex-1 items-center gap-3" };
+const _hoisted_3$a = { class: "relative inline-flex flex-shrink-0 cursor-pointer items-center" };
+const _hoisted_4$6 = ["checked", "onChange", "disabled"];
+const _hoisted_5$3 = { class: "text-lg" };
+const _hoisted_6$2 = ["onClick", "disabled"];
+const _hoisted_7$2 = {
   key: 0,
   class: "bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-400 flex-shrink-0 rounded px-1.5 py-0.5 text-xs font-medium"
 };
-const _hoisted_9$2 = {
+const _hoisted_8$2 = {
   key: 0,
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
@@ -48737,95 +48888,31 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
   __name: "SettingsFeaturesCard",
   setup(__props) {
     const authStore2 = useAuthStore();
-    const cannabisEnabled = computed({
-      get: () => {
-        var _a, _b;
-        return ((_b = (_a = authStore2.currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.cannabis) ?? true;
-      },
-      set: async (value2) => {
-        await updateFeature("cannabis", value2);
-      }
-    });
-    const alcoholEnabled = computed({
-      get: () => {
-        var _a, _b;
-        return ((_b = (_a = authStore2.currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.alcohol) ?? true;
-      },
-      set: async (value2) => {
-        await updateFeature("alcohol", value2);
-      }
-    });
-    const sportsEnabled = computed({
-      get: () => {
-        var _a, _b;
-        return ((_b = (_a = authStore2.currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.sports) ?? true;
-      },
-      set: async (value2) => {
-        await updateFeature("sports", value2);
-      }
-    });
-    const meditationEnabled = computed({
-      get: () => {
-        var _a, _b;
-        return ((_b = (_a = authStore2.currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.meditation) ?? true;
-      },
-      set: async (value2) => {
-        await updateFeature("meditation", value2);
-      }
-    });
-    const customHabitsEnabled = computed({
-      get: () => {
-        var _a, _b;
-        return ((_b = (_a = authStore2.currentUser) == null ? void 0 : _a.features) == null ? void 0 : _b.custom_habits) ?? true;
-      },
-      set: async (value2) => {
-        await updateFeature("custom_habits", value2);
-      }
-    });
+    const { settingsSections } = useHabits();
     const isUpdatingFeatures = ref(false);
     const isUpdatingFocus = ref(false);
-    const featuresList = computed(() => [
-      {
-        key: "cannabis",
-        icon: "🌿",
-        label: "Weed",
-        enabled: cannabisEnabled.value,
-        focusValue: TFeatureEnum.CANNABIS,
-        toggle: (value2) => cannabisEnabled.value = value2
-      },
-      {
-        key: "alcohol",
-        icon: "🍷",
-        label: "Alkohol",
-        enabled: alcoholEnabled.value,
-        focusValue: TFeatureEnum.ALCOHOL,
-        toggle: (value2) => alcoholEnabled.value = value2
-      },
-      {
-        key: "sports",
-        icon: "🏃",
-        label: "Sport",
-        enabled: sportsEnabled.value,
-        focusValue: TFeatureEnum.SPORTS,
-        toggle: (value2) => sportsEnabled.value = value2
-      },
-      {
-        key: "meditation",
-        icon: "🧘",
-        label: "Meditation",
-        enabled: meditationEnabled.value,
-        focusValue: TFeatureEnum.MEDITATION,
-        toggle: (value2) => meditationEnabled.value = value2
-      },
-      {
-        key: "custom_habits",
-        icon: "✅",
-        label: "Eigene Habits",
-        enabled: customHabitsEnabled.value,
-        focusValue: TFeatureEnum.CUSTOM_HABITS,
-        toggle: (value2) => customHabitsEnabled.value = value2
-      }
-    ]);
+    const featureApiKeys = {
+      sports: "sports",
+      meditation: "meditation",
+      customHabits: "custom_habits",
+      alcohol: "alcohol",
+      weed: "cannabis"
+    };
+    const featuresList = computed(() => {
+      var _a;
+      const features = (_a = authStore2.currentUser) == null ? void 0 : _a.features;
+      return settingsSections.value.map((section) => ({
+        key: section.key,
+        apiKey: featureApiKeys[section.key],
+        icon: section.icon,
+        label: section.label,
+        enabled: (features == null ? void 0 : features[section.featureKey]) ?? true,
+        focusValue: section.focusValue
+      }));
+    });
+    function toggleFeature(apiKey, value2) {
+      updateFeature(apiKey, value2);
+    }
     const selectedFocus = computed({
       get: () => {
         var _a;
@@ -48866,11 +48953,11 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     };
     function getNextFocus(features) {
       if (!features) return null;
-      if (features.cannabis) return TFeatureEnum.CANNABIS;
-      if (features.alcohol) return TFeatureEnum.ALCOHOL;
       if (features.sports) return TFeatureEnum.SPORTS;
       if (features.meditation) return TFeatureEnum.MEDITATION;
       if (features.custom_habits) return TFeatureEnum.CUSTOM_HABITS;
+      if (features.alcohol) return TFeatureEnum.ALCOHOL;
+      if (features.cannabis) return TFeatureEnum.CANNABIS;
       return null;
     }
     async function updateFeature(feature, value2) {
@@ -48916,60 +49003,68 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
           createBaseVNode("h3", { class: "text-lg font-medium text-gray-900 dark:text-white" }, " Features "),
           createBaseVNode("p", { class: "dark:text-dark-400 text-sm text-gray-600" }, " Aktiviere Features und wähle deinen Fokus für die Kalenderansicht ")
         ], -1)),
-        createBaseVNode("div", _hoisted_2$c, [
-          (openBlock(true), createElementBlock(Fragment, null, renderList(featuresList.value, (feature) => {
-            return openBlock(), createElementBlock("div", {
-              key: feature.key,
-              class: "dark:hover:bg-dark-700/50 group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50"
-            }, [
-              createBaseVNode("div", _hoisted_3$a, [
-                createBaseVNode("label", _hoisted_4$6, [
-                  createBaseVNode("input", {
-                    type: "checkbox",
-                    checked: feature.enabled,
-                    onChange: ($event) => feature.toggle(!feature.enabled),
-                    disabled: isUpdatingFeatures.value,
-                    class: "peer sr-only"
-                  }, null, 40, _hoisted_5$3),
-                  _cache[0] || (_cache[0] = createBaseVNode("div", { class: "peer-checked:bg-primary-500 dark:border-dark-600 dark:bg-dark-600 dark:peer-checked:bg-primary-500 peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50" }, null, -1))
-                ]),
-                createBaseVNode("span", _hoisted_6$2, toDisplayString(feature.icon), 1),
-                createBaseVNode("span", {
-                  class: normalizeClass(["truncate text-sm font-medium text-gray-700 dark:text-gray-200", !feature.enabled && "opacity-50"])
-                }, toDisplayString(feature.label), 3)
-              ]),
-              createBaseVNode("button", {
-                onClick: ($event) => feature.enabled && (selectedFocus.value = feature.focusValue),
-                disabled: !feature.enabled || isUpdatingFocus.value,
-                class: normalizeClass([
-                  "flex flex-shrink-0 items-center gap-2",
-                  feature.enabled ? "cursor-pointer" : "cursor-default opacity-50"
-                ])
+        createVNode(TransitionGroup, {
+          name: "feature-list",
+          tag: "div",
+          class: "relative space-y-1"
+        }, {
+          default: withCtx(() => [
+            (openBlock(true), createElementBlock(Fragment, null, renderList(featuresList.value, (feature) => {
+              return openBlock(), createElementBlock("div", {
+                key: feature.key,
+                class: "dark:hover:bg-dark-700/50 group flex items-center justify-between rounded-lg px-3 py-2.5 transition-all duration-300 ease-out hover:bg-gray-50"
               }, [
-                selectedFocus.value === feature.focusValue && feature.enabled ? (openBlock(), createElementBlock("span", _hoisted_8$2, " Fokus ")) : createCommentVNode("", true),
-                createBaseVNode("div", {
+                createBaseVNode("div", _hoisted_2$c, [
+                  createBaseVNode("label", _hoisted_3$a, [
+                    createBaseVNode("input", {
+                      type: "checkbox",
+                      checked: feature.enabled,
+                      onChange: ($event) => toggleFeature(feature.apiKey, !feature.enabled),
+                      disabled: isUpdatingFeatures.value,
+                      class: "peer sr-only"
+                    }, null, 40, _hoisted_4$6),
+                    _cache[0] || (_cache[0] = createBaseVNode("div", { class: "peer-checked:bg-primary-500 dark:border-dark-600 dark:bg-dark-600 dark:peer-checked:bg-primary-500 peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50" }, null, -1))
+                  ]),
+                  createBaseVNode("span", _hoisted_5$3, toDisplayString(feature.icon), 1),
+                  createBaseVNode("span", {
+                    class: normalizeClass(["truncate text-sm font-medium text-gray-700 dark:text-gray-200", !feature.enabled && "opacity-50"])
+                  }, toDisplayString(feature.label), 3)
+                ]),
+                createBaseVNode("button", {
+                  onClick: ($event) => feature.enabled && (selectedFocus.value = feature.focusValue),
+                  disabled: !feature.enabled || isUpdatingFocus.value,
                   class: normalizeClass([
-                    "flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full transition-all",
-                    selectedFocus.value === feature.focusValue && feature.enabled ? "bg-primary-500 text-white shadow-sm" : feature.enabled ? "dark:border-dark-500 dark:group-hover:border-dark-400 border-2 border-gray-300 group-hover:border-gray-400" : "dark:border-dark-600 border-2 border-gray-200"
+                    "flex flex-shrink-0 items-center gap-2",
+                    feature.enabled ? "cursor-pointer" : "cursor-default opacity-50"
                   ])
                 }, [
-                  selectedFocus.value === feature.focusValue && feature.enabled ? (openBlock(), createElementBlock("svg", _hoisted_9$2, _cache[1] || (_cache[1] = [
-                    createBaseVNode("path", {
-                      "fill-rule": "evenodd",
-                      d: "M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z",
-                      "clip-rule": "evenodd"
-                    }, null, -1)
-                  ]))) : createCommentVNode("", true)
-                ], 2)
-              ], 10, _hoisted_7$2)
-            ]);
-          }), 128))
-        ]),
+                  selectedFocus.value === feature.focusValue && feature.enabled ? (openBlock(), createElementBlock("span", _hoisted_7$2, " Fokus ")) : createCommentVNode("", true),
+                  createBaseVNode("div", {
+                    class: normalizeClass([
+                      "flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full transition-all",
+                      selectedFocus.value === feature.focusValue && feature.enabled ? "bg-primary-500 text-white shadow-sm" : feature.enabled ? "dark:border-dark-500 dark:group-hover:border-dark-400 border-2 border-gray-300 group-hover:border-gray-400" : "dark:border-dark-600 border-2 border-gray-200"
+                    ])
+                  }, [
+                    selectedFocus.value === feature.focusValue && feature.enabled ? (openBlock(), createElementBlock("svg", _hoisted_8$2, _cache[1] || (_cache[1] = [
+                      createBaseVNode("path", {
+                        "fill-rule": "evenodd",
+                        d: "M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z",
+                        "clip-rule": "evenodd"
+                      }, null, -1)
+                    ]))) : createCommentVNode("", true)
+                  ], 2)
+                ], 10, _hoisted_6$2)
+              ]);
+            }), 128))
+          ]),
+          _: 1
+        }),
         _cache[3] || (_cache[3] = createBaseVNode("p", { class: "dark:text-dark-500 dark:border-dark-700 mt-3 border-t border-gray-100 pt-3 text-xs text-gray-400" }, " Tippe auf einen aktiven Eintrag, um ihn als Fokus zu setzen ", -1))
       ]);
     };
   }
 });
+const SettingsFeaturesCard = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-92a1e4f4"]]);
 const _hoisted_1$e = { class: "space-y-3" };
 const _hoisted_2$b = {
   "data-intro-step": "restart-tour",
@@ -49042,7 +49137,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
           createBaseVNode("h1", { class: "text-2xl font-bold text-gray-900 dark:text-white" }, " Einstellungen ")
         ], -1)),
         createVNode(_sfc_main$i),
-        createVNode(_sfc_main$h),
+        createVNode(SettingsFeaturesCard),
         createVNode(_sfc_main$g),
         createBaseVNode("div", _hoisted_2$a, [
           createVNode(_sfc_main$T, {
@@ -49435,7 +49530,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   }
 });
 const Share = registerPlugin("Share", {
-  web: () => __vitePreload(() => import("./web-BXwNg3eA.js"), true ? [] : void 0).then((m2) => new m2.ShareWeb())
+  web: () => __vitePreload(() => import("./web-D-StPsPh.js"), true ? [] : void 0).then((m2) => new m2.ShareWeb())
 });
 const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   __name: "PageTab",
@@ -49464,40 +49559,39 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const pageStore = usePageStore();
     const currentPage = computed(() => pageStore.currentPage);
-    const pages = [
-      { page: "weed", emoji: "🌿" },
-      { page: "meditation", emoji: "🧘‍♂️" },
-      { page: "sports", emoji: "🏋️‍♀️" },
-      { page: "alcohol", emoji: "🍷" }
-    ];
+    const { activeSections } = useHabits();
+    const sectionToPage = {
+      weed: "weed",
+      alcohol: "alcohol",
+      sports: "sports",
+      meditation: "meditation",
+      customHabits: null
+      // No score for custom habits
+    };
+    const pages = computed(() => {
+      return activeSections.value.filter((section) => sectionToPage[section.key] !== null).map((section) => ({
+        page: sectionToPage[section.key],
+        emoji: section.icon
+      }));
+    });
     function selectPage(page) {
       pageStore.setCurrentPage(page);
     }
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$7, [
-        (openBlock(), createElementBlock(Fragment, null, renderList(pages, (p2) => {
-          return createVNode(_sfc_main$8, {
+        (openBlock(true), createElementBlock(Fragment, null, renderList(pages.value, (p2) => {
+          return openBlock(), createBlock(_sfc_main$8, {
             key: p2.page,
             page: p2.page,
             emoji: p2.emoji,
             active: currentPage.value === p2.page,
             onSelect: ($event) => selectPage(p2.page)
           }, null, 8, ["page", "emoji", "active", "onSelect"]);
-        }), 64))
+        }), 128))
       ]);
     };
   }
 });
-function getActiveWeekGoal(weeklyGoals) {
-  if (!weeklyGoals || weeklyGoals.length === 0) {
-    return null;
-  }
-  return weeklyGoals.find((goal) => goal.active === true) || null;
-}
-function getProgressPercentage(achieved, goal) {
-  if (goal === 0) return achieved > 0 ? 100 : 0;
-  return Math.min(100, Math.round(achieved / goal * 100));
-}
 const _hoisted_1$6 = { class: "w-8 flex-shrink-0 text-center" };
 const _hoisted_2$5 = {
   key: 0,
@@ -49559,83 +49653,8 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     const props = __props;
-    const weeklyGoal = computed(
-      () => getActiveWeekGoal(props.user.weekly_goals)
-    );
-    const features = computed(() => props.user.features);
-    const categories = computed(() => {
-      const goal = weeklyGoal.value;
-      if (!goal) return [];
-      const items = [];
-      const userFeatures = features.value;
-      if ((userFeatures == null ? void 0 : userFeatures.cannabis) && goal.clean_days_count > 0) {
-        const achieved = goal.clean_days_reached ?? 0;
-        items.push({
-          id: "weed",
-          emoji: "🌿",
-          achieved,
-          goal: goal.clean_days_count,
-          percentage: getProgressPercentage(
-            achieved,
-            goal.clean_days_count
-          )
-        });
-      }
-      if ((userFeatures == null ? void 0 : userFeatures.alcohol) && goal.clean_alcohol_days_count > 0) {
-        const achieved = goal.clean_alcohol_days_reached ?? 0;
-        items.push({
-          id: "alcohol",
-          emoji: "💧",
-          achieved,
-          goal: goal.clean_alcohol_days_count,
-          percentage: getProgressPercentage(
-            achieved,
-            goal.clean_alcohol_days_count
-          )
-        });
-      }
-      if ((userFeatures == null ? void 0 : userFeatures.sports) && goal.sports_count > 0) {
-        const achieved = goal.sports_reached ?? 0;
-        items.push({
-          id: "sports",
-          emoji: "🏋️",
-          achieved,
-          goal: goal.sports_count,
-          percentage: getProgressPercentage(achieved, goal.sports_count)
-        });
-      }
-      if ((userFeatures == null ? void 0 : userFeatures.meditation) && goal.meditation_sessions_count > 0) {
-        const achieved = goal.meditation_sessions_reached ?? 0;
-        items.push({
-          id: "meditation",
-          emoji: "🧘",
-          achieved,
-          goal: goal.meditation_sessions_count,
-          percentage: getProgressPercentage(
-            achieved,
-            goal.meditation_sessions_count
-          )
-        });
-      }
-      if ((userFeatures == null ? void 0 : userFeatures.custom_habits) && goal.custom_habit_goals) {
-        goal.custom_habit_goals.forEach((habitGoal) => {
-          if (habitGoal.days_per_week > 0) {
-            const achieved = habitGoal.reached ?? 0;
-            items.push({
-              id: `habit-${habitGoal.custom_habit_id}`,
-              emoji: "✨",
-              achieved,
-              goal: habitGoal.days_per_week,
-              percentage: getProgressPercentage(
-                achieved,
-                habitGoal.days_per_week
-              )
-            });
-          }
-        });
-      }
-      return items;
-    });
+    const { getProgress } = useHabits();
+    const categories = computed(() => getProgress(props.user));
     const overallProgress = computed(() => {
       const cats = categories.value;
       if (cats.length === 0) return 0;
@@ -50573,7 +50592,7 @@ if ("function" === typeof importScripts) {
   firebase.messaging();
 }
 const App = registerPlugin("App", {
-  web: () => __vitePreload(() => import("./web-DOTvSt9j.js"), true ? [] : void 0).then((m2) => new m2.AppWeb())
+  web: () => __vitePreload(() => import("./web-DHPQBKxS.js"), true ? [] : void 0).then((m2) => new m2.AppWeb())
 });
 library$1.add(faPen);
 initializeOpenAPIConfig();

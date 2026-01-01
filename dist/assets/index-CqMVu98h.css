@@ -5337,6 +5337,26 @@ html, body {
         opacity: 0;
 }
 
+    /* FLIP animation for list reordering */
+.feature-list-move[data-v-92a1e4f4] {
+        transition: transform 0.4s ease-out;
+}
+.feature-list-enter-active[data-v-92a1e4f4],
+    .feature-list-leave-active[data-v-92a1e4f4] {
+        transition: all 0.3s ease-out;
+}
+.feature-list-enter-from[data-v-92a1e4f4],
+    .feature-list-leave-to[data-v-92a1e4f4] {
+        opacity: 0;
+        transform: translateX(-20px);
+}
+
+    /* Ensure leaving items don't affect layout during animation */
+.feature-list-leave-active[data-v-92a1e4f4] {
+        position: absolute;
+        width: 100%;
+}
+
 .collapse-enter-active[data-v-8dfe2634],
     .collapse-leave-active[data-v-8dfe2634] {
         transition: all 0.3s ease-in-out;
